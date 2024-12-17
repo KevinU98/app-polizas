@@ -23,63 +23,63 @@ export class PolizaComponent implements OnInit{
   private polizaService = inject(PolizaService)
   private sweetAlertService = inject(SweetAlertService)
 
-  // polizasList: PolizaModel[] = [];
-  polizasList: PolizaModel[] = [
-    {
-      Id: 1,
-      Nombre: 'Juan Pérez',
-      DireccionParticular: 'Calle Falsa 123',
-      Colonia: 'Centro',
-      Telefono: '555-123-4567',
-      Poblacion: 'Ciudad A',
-      DomicilioCobro: 'Domicilio 123',
-      Empresa: 'Empresa XYZ',
-      TelEmpresa: '555-789-4561',
-      CalleEmpresa: 'Avenida Principal 456',
-      Beneficiario: 'Ana López',
-      Edad: '35',
-      Parentesco: 'Hermano',
-      Vendedor: 'Carlos Ramírez',
-      Promotor: 'Laura Mendoza',
-      Renovacion: 1,
-    },
-    {
-      Id: 2,
-      Nombre: 'María González',
-      DireccionParticular: 'Calle Sol 456',
-      Colonia: 'Norte',
-      Telefono: '555-234-5678',
-      Poblacion: 'Ciudad B',
-      DomicilioCobro: 'Cobro 456',
-      Empresa: 'Empresa ABC',
-      TelEmpresa: '555-456-7890',
-      CalleEmpresa: 'Avenida Sur 789',
-      Beneficiario: 'Pedro Martínez',
-      Edad: '42',
-      Parentesco: 'Padre',
-      Vendedor: 'Karla Torres',
-      Promotor: 'Sandra Gómez',
-      Renovacion: 0,
-    },
-    {
-      Id: 3,
-      Nombre: 'Pedro Martínez',
-      DireccionParticular: 'Avenida Luna 789',
-      Colonia: 'Este',
-      Telefono: '555-345-6789',
-      Poblacion: 'Ciudad C',
-      DomicilioCobro: 'Cobro 789',
-      Empresa: 'Empresa 123',
-      TelEmpresa: '555-567-8901',
-      CalleEmpresa: 'Calle Norte 456',
-      Beneficiario: 'Lucía Pérez',
-      Edad: '28',
-      Parentesco: 'Esposa',
-      Vendedor: 'José Suárez',
-      Promotor: 'Claudia Ruiz',
-      Renovacion: 1,
-    }
-  ];
+  polizasList: PolizaModel[] = [];
+  // polizasList: PolizaModel[] = [
+  //   {
+  //     Id: 1,
+  //     Nombre: 'Juan Pérez',
+  //     DireccionParticular: 'Calle Falsa 123',
+  //     Colonia: 'Centro',
+  //     Telefono: '555-123-4567',
+  //     Poblacion: 'Ciudad A',
+  //     DomicilioCobro: 'Domicilio 123',
+  //     Empresa: 'Empresa XYZ',
+  //     TelEmpresa: '555-789-4561',
+  //     CalleEmpresa: 'Avenida Principal 456',
+  //     Beneficiario: 'Ana López',
+  //     Edad: '35',
+  //     Parentesco: 'Hermano',
+  //     Vendedor: 'Carlos Ramírez',
+  //     Promotor: 'Laura Mendoza',
+  //     Renovacion: 1,
+  //   },
+  //   {
+  //     Id: 2,
+  //     Nombre: 'María González',
+  //     DireccionParticular: 'Calle Sol 456',
+  //     Colonia: 'Norte',
+  //     Telefono: '555-234-5678',
+  //     Poblacion: 'Ciudad B',
+  //     DomicilioCobro: 'Cobro 456',
+  //     Empresa: 'Empresa ABC',
+  //     TelEmpresa: '555-456-7890',
+  //     CalleEmpresa: 'Avenida Sur 789',
+  //     Beneficiario: 'Pedro Martínez',
+  //     Edad: '42',
+  //     Parentesco: 'Padre',
+  //     Vendedor: 'Karla Torres',
+  //     Promotor: 'Sandra Gómez',
+  //     Renovacion: 0,
+  //   },
+  //   {
+  //     Id: 3,
+  //     Nombre: 'Pedro Martínez',
+  //     DireccionParticular: 'Avenida Luna 789',
+  //     Colonia: 'Este',
+  //     Telefono: '555-345-6789',
+  //     Poblacion: 'Ciudad C',
+  //     DomicilioCobro: 'Cobro 789',
+  //     Empresa: 'Empresa 123',
+  //     TelEmpresa: '555-567-8901',
+  //     CalleEmpresa: 'Calle Norte 456',
+  //     Beneficiario: 'Lucía Pérez',
+  //     Edad: '28',
+  //     Parentesco: 'Esposa',
+  //     Vendedor: 'José Suárez',
+  //     Promotor: 'Claudia Ruiz',
+  //     Renovacion: 1,
+  //   }
+  // ];
 
   form = this.fb.nonNullable.group({
     nombre: ['', [Validators.required]],
@@ -103,9 +103,9 @@ export class PolizaComponent implements OnInit{
   }
 
   getAllPolizas() {
-    // this.polizaService.getAllPolizas().subscribe((data) => {
-    //   this.polizasList = data.response.data;
-    // })
+    this.polizaService.getAllPolizas().subscribe((data) => {
+      this.polizasList = data.response.data;
+    })
   }
 
   onSubmit(): void{
