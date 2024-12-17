@@ -1,0 +1,12 @@
+<nb-layout windowMode>
+    <nb-layout-header class="fixed">
+        <app-header></app-header>
+    </nb-layout-header>
+    <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
+        <nb-menu [items]="menu"></nb-menu>
+    </nb-sidebar>
+    <nb-layout-column>
+        <router-outlet></router-outlet>
+    </nb-layout-column>
+</nb-layout>
+

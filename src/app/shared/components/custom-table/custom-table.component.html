@@ -1,0 +1,100 @@
+<nb-card>
+    <nb-card-header><h5>{{tableHead}}</h5></nb-card-header>
+    <nb-card-body>
+        <div class="flex flex-col md:flex-row items-center justify-end space-y-3 md:space-y-0 md:space-x-4 p-4">
+            <div class="pb-4" *ngIf="hasSearch">
+                <label for="table-search" class="sr-only">Buscar</label>
+                <div class="relative mt-1">
+                    <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                    </div>
+                    <input nbInput [(ngModel)]="elementoBuscado" type="text" id="table-search" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar">
+                </div>
+            </div>
+            <div *ngIf="hasExport"class="flex flex-col flex-shrink-0 md:flex-row md:items-center lg:justify-end md:space-y-0 md:space-x-3">
+                <button nbButton type="button" status="success">
+                    Exportar
+                </button>
+            </div>
+        </div>
+        <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th *ngFor="let header of headers; let i = index" (click)="sortTable(keys[i])" scope="col" class="px-6 py-3 cursor-pointer">
+                            <div class="flex items-center">
+                                {{header}}
+                                <nb-icon *ngIf="sortKey === keys[i]" [icon]="sortDirection === 'asc' ? 'arrow-up-outline' : 'arrow-down-outline'"></nb-icon>
+                            </div>
+                        </th>
+                        <th *ngIf="hasEdit || hasDelete">
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of filtrarDatos" class="border-b" [ngClass]="{'bg-red-500 text-white': row.Renovacion === 1, 'bg-white text-black': row.Renovacion !== 1}">
+                        <td *ngFor="let key of keys"class="px-6 py-4">
+                           {{row[key]}}
+                        </td>
+                        <td *ngIf="hasEdit || hasDelete">
+                            <button 
+                              *ngIf="hasEdit" 
+                              [ngClass]="{'text-white': row.Renovacion === 1}" 
+                              class="text-blue-600 font-medium hover:underline" 
+                              (click)="editRow(row)">
+                              <nb-icon 
+                                icon="edit-outline" 
+                                [ngClass]="{'text-white': row.Renovacion === 1}"></nb-icon>
+                            </button>
+                          
+                            <button 
+                              *ngIf="hasDelete" 
+                              [ngClass]="{'text-white': row.Renovacion === 1}" 
+                              class="text-red-600 font-medium hover:underline ms-3" 
+                              (click)="deleteRow(row)">
+                              <nb-icon 
+                                icon="trash-outline" 
+                                [ngClass]="{'text-white': row.Renovacion === 1}"></nb-icon>
+                            </button>
+                          </td>                          
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </nb-card-body>
+
+    <!-- navbar -->
+    <nb-card-footer>
+        <nav *ngIf="totalItems > currentPerPage" class="flex flex-col md:flex-row items-center justify-end space-y-3 md:space-y-0 md:space-x-4 p-4">
+            <ul class="flex items-center -space-x-px h-8 text-sm">
+              <li>
+                <button [disabled]="currentPage === 1" (click)="changePage(1)" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700">
+                    <nb-icon icon="arrowhead-left-outline"></nb-icon>
+                </button>
+              </li>
+              <li>
+                <button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 hover:bg-gray-100 hover:text-gray-700">
+                    <nb-icon icon="arrow-ios-back-outline"></nb-icon>
+                </button>
+              </li>
+              <li *ngFor="let page of [].constructor(lastPage); let i = index">
+                <button [class.active]="currentPage === i + 1" (click)="changePage(i + 1)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{{ i + 1 }}</button>
+              </li>
+              <li>
+                <button [disabled]="currentPage === lastPage" (click)="changePage(currentPage + 1)" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 hover:bg-gray-100 hover:text-gray-700">
+                    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+                </button>
+              </li>
+              <li>
+                <button [disabled]="currentPage === lastPage" (click)="changePage(lastPage)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700">
+                    <nb-icon icon="arrowhead-right-outline"></nb-icon>
+                </button>
+              </li>
+            </ul>
+          </nav>      
+    </nb-card-footer>
+</nb-card>
+

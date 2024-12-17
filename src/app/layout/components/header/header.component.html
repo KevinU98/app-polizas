@@ -1,0 +1,22 @@
+<div class="header-container">
+    <div class="logo-container">
+        <div (click)="toggleSidebar()" class="sidebar-toggle"> 
+            <nb-icon icon="menu-2-outline"></nb-icon>
+        </div>
+        <a class="logo" href="/home">App Pólizas</a>
+    </div>
+</div>
+
+<div class="header-container">
+    <nb-actions size="small">
+        <nb-action class="user-action">
+          <nb-user [nbContextMenu] = "userMenu"
+                   nbContextMenuTag="acciones"
+                   [name]="user"
+          ></nb-user>
+        </nb-action>
+    </nb-actions>
+</div>
+
+
+

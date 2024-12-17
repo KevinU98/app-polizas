@@ -1,0 +1,43 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@Global/*":["src/app/global/*"],
+      "@Environment": ["src/environments/environment.ts"],
+      "@EndPoints*": ["src/app/global/endpoints.ts"],
+      "@Services": ["src/app/core/services"],
+      "@Component/Table": ["src/app/shared/components/custom-table/custom-table.component.ts"],
+      "@Models/Response": ["src/app/core/models/response/response.ts"],
+      "@Models/Auth": ["src/app/core/models/login"],
+      "@Models/Polizas": ["src/app/core/models/polizas"],
+    },
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": [
+      "ES2022",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

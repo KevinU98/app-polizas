@@ -1,0 +1,32 @@
+@use 'themes' as *;
+@use '@nebular/theme/styles/globals' as *;
+@use '@nebular/auth/styles/globals' as *;
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@include nb-install() {
+  @include nb-theme-global();
+  @include nb-auth-global(); // append the install mixin inside of the nb-install
+};
+
+.form-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  .label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+
+
+
+/* You can add global styles to this file, and also import other style files */
