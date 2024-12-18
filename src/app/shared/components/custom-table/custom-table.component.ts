@@ -6,8 +6,7 @@ import { NbIconModule,NbButtonModule, NbInputModule, NbCardModule } from '@nebul
   selector: 'app-custom-table',
   standalone: true,
   imports: [NgFor, NgIf, NbIconModule, FormsModule, NbButtonModule, NbCardModule, CommonModule],
-  templateUrl: './custom-table.component.html',
-  styleUrls: ['./custom-table.component.scss']
+  templateUrl: './custom-table.component.html'
 })
 export class CustomTableComponent implements OnInit{
   @Input() keyRow: string = "Id";
@@ -19,8 +18,10 @@ export class CustomTableComponent implements OnInit{
   @Input() hasExport: boolean = false;
   @Input() hasEdit: boolean = false;
   @Input() hasDelete: boolean = false;
+  @Input() hasExportRow: boolean = false;
   
   @Output() editEmit: EventEmitter<any> = new EventEmitter();
+  @Output() exportRowEmit: EventEmitter<any> = new EventEmitter();
   @Output() deleteEmit: EventEmitter<any> = new EventEmitter();
 
   //Buscar elemento
@@ -86,6 +87,10 @@ export class CustomTableComponent implements OnInit{
 
   editRow(data: any){
     this.editEmit.emit(data)
+  }
+
+  exportRow(data: any){
+    this.exportRowEmit.emit(data)
   }
 
   deleteRow(data: any){
