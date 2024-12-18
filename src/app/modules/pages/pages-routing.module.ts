@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 // import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { LayoutComponent } from 'src/app/layout/layout/layout.component';
 import { PolizaComponent } from './polizas/polizas.component';
+import { ListaPolizasComponent } from './lista-polizas/lista-polizas.component';
 
 const routes: Routes = [{
   path: '',
@@ -11,8 +12,11 @@ const routes: Routes = [{
   children: [
     {
       path: 'polizas',
-      component: PolizaComponent,
-      title: 'Polizas'
+      component: PolizaComponent
+    },
+    {
+      path: 'lista-polizas',
+      component: ListaPolizasComponent
     }
   ],
 }];

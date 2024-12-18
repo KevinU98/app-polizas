@@ -11,5 +11,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Pólizas',
     icon: 'credit-card-outline',
     link: '/pages/polizas',
+  },
+  {
+    title: 'Lista de Pólizas',
+    icon: 'list-outline',
+    link: '/pages/lista-polizas',
   }
 ]
