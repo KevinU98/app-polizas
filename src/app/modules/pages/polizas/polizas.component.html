@@ -8,6 +8,10 @@
             </nb-card-header>
             <nb-card-body class="form-grid">
                 <div>
+                    <label class="label">*Folio:</label>
+                    <input formControlName="folio" type="text" nbInput fullWidth readonly>
+                </div>
+                <div>
                     <label class="label">*Nombre:</label>
                     <input formControlName="nombre" type="text" nbInput fullWidth>
                     <div *ngIf="form.get('nombre')?.touched && form.get('nombre')?.invalid">
@@ -71,27 +75,6 @@
                     </div>
                 </div>
                 <div>
-                    <label class="label">*Beneficiario:</label>
-                    <input formControlName="beneficiario" type="text" nbInput fullWidth>
-                    <div *ngIf="form.get('beneficiario')?.touched && form.get('beneficiario')?.invalid">
-                        <p class="text-danger text-sm italic" *ngIf="form.get('beneficiario')?.errors?.['required']">Beneficiario requerido*</p>
-                    </div>
-                </div>
-                <div>
-                    <label class="label">*Edad:</label>
-                    <input formControlName="edad" type="text" nbInput fullWidth>
-                    <div *ngIf="form.get('edad')?.touched && form.get('edad')?.invalid">
-                        <p class="text-danger text-sm italic" *ngIf="form.get('edad')?.errors?.['required']">Edad requerida*</p>
-                    </div>
-                </div>
-                <div>
-                    <label class="label">*Parentesco:</label>
-                    <input formControlName="parentesco" type="text" nbInput fullWidth>
-                    <div *ngIf="form.get('parentesco')?.touched && form.get('parentesco')?.invalid">
-                        <p class="text-danger text-sm italic" *ngIf="form.get('parentesco')?.errors?.['required']">Parentesco requerido*</p>
-                    </div>
-                </div>
-                <div>
                     <label class="label">*Vendedor:</label>
                     <input formControlName="vendedor" type="text" nbInput fullWidth>
                     <div *ngIf="form.get('vendedor')?.touched && form.get('vendedor')?.invalid">
@@ -108,6 +91,45 @@
             </nb-card-body>
             <nb-card-footer style="display: flex; justify-content: flex-end;">
                 <button nbButton status="primary" type="submit">Guardar</button>
+                <button nbButton status="success" type="button" class="ms-2" (click)="finalizar()">Finalizar</button>
+            </nb-card-footer>
+        </nb-card>
+    </form>
+</div>
+
+<div>
+    <form [formGroup]="formBeneficiario" (ngSubmit)="onSubmitBeneficiario()" novalidate>
+        <nb-card>
+            <nb-card-header>
+                <h5>
+                    Beneficiarios | Formulario
+                </h5>
+            </nb-card-header>
+            <nb-card-body class="form-grid">
+                <div>
+                    <label class="label">*Beneficiario:</label>
+                    <input formControlName="nombre" type="text" nbInput fullWidth>
+                    <div *ngIf="form.get('nombre')?.touched && form.get('nombre')?.invalid">
+                        <p class="text-danger text-sm italic" *ngIf="form.get('nombre')?.errors?.['required']">Beneficiario requerido*</p>
+                    </div>
+                </div>
+                <div>
+                    <label class="label">*Edad:</label>
+                    <input formControlName="edad" type="text" nbInput fullWidth>
+                    <div *ngIf="form.get('edad')?.touched && form.get('edad')?.invalid">
+                        <p class="text-danger text-sm italic" *ngIf="form.get('edad')?.errors?.['required']">Edad requerida*</p>
+                    </div>
+                </div>
+                <div>
+                    <label class="label">*Parentesco:</label>
+                    <input formControlName="parentesco" type="text" nbInput fullWidth>
+                    <div *ngIf="form.get('parentesco')?.touched && form.get('parentesco')?.invalid">
+                        <p class="text-danger text-sm italic" *ngIf="form.get('parentesco')?.errors?.['required']">Parentesco requerido*</p>
+                    </div>
+                </div>
+            </nb-card-body>
+            <nb-card-footer style="display: flex; justify-content: flex-end;">
+                <button nbButton status="primary" type="submit">Guardar</button>
             </nb-card-footer>
         </nb-card>
     </form>
@@ -115,14 +137,12 @@
 
 <div>
     <app-custom-table
-        tableHead="Pólizas | Tabla"
+        tableHead="Beneficiarios | Tabla"
         keyRow="Id"
-        [headers]="['#', 'Nombre', 'Dirección Particular', 'Colonia', 'Teléfono', 'Población', 'Domicilio Cobro', 'Empresa', 'Teléfono Empresa', 'Calle Empresa', 'Beneficiario', 'Edad', 'Parentesco', 'Vendedor', 'Promotor']"
-        [keys]="['Id', 'Nombre', 'DireccionParticular', 'Colonia', 'Telefono', 'Poblacion', 'DomicilioCobro', 'Empresa', 'TelEmpresa', 'CalleEmpresa', 'Beneficiario', 'Edad', 'Parentesco', 'Vendedor', 'Promotor']"
-        [data]="polizasList"
-        [hasEdit]="true"
-        [hasDelete]="true"
-        (editEmit)="editPoliza($event)"
-        (deleteEmit)="deletePoliza($event)">
+        [headers]="['#', 'Nombre', 'Edad', 'Parantesco']"
+        [keys]="['Id', 'Nombre', 'Edad', 'Parantesco']"
+        [data]="beneficiariosList"
+        (editEmit)="editBeneficiario($event)"
+        (deleteEmit)="deleteBeneficiario($event)">
     ></app-custom-table>
 </div>
