@@ -1,4 +1,5 @@
 import {ApiResponse} from '@Models/Response';
+import { BeneficiarioModel } from '@Models/Polizas';
 
 export type GetPolizasResponse = ApiResponse<GetPolizasData>;
 export interface GetPolizasData{
@@ -39,4 +40,6 @@ export interface PolizaModel {
     Vendedor: string;
     Promotor: string;
     Renovacion: number;
+    Fecha: string;
+    beneficiarios:BeneficiarioModel[]
 }

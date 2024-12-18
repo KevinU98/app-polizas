@@ -6,6 +6,7 @@
         [keys]="['Id', 'Nombre', 'DireccionParticular', 'Colonia', 'Telefono', 'Poblacion', 'DomicilioCobro', 'Empresa', 'TelEmpresa', 'CalleEmpresa', 'Vendedor', 'Promotor']"
         [data]="polizasList"
         [hasExportRow]="true"
-        (deleteEmit)="deletePoliza($event)">
+        (deleteEmit)="deletePoliza($event)"
+        (exportRowEmit)="exportPoliza($event)">
     ></app-custom-table>
 </div>
