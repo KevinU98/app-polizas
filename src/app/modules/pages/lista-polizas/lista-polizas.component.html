@@ -1,0 +1,11 @@
+<div>
+    <app-custom-table
+        tableHead="Pólizas | Tabla"
+        keyRow="Id"
+        [headers]="['#', 'Nombre', 'Dirección Particular', 'Colonia', 'Teléfono', 'Población', 'Domicilio Cobro', 'Empresa', 'Teléfono Empresa', 'Calle Empresa', 'Vendedor', 'Promotor']"
+        [keys]="['Id', 'Nombre', 'DireccionParticular', 'Colonia', 'Telefono', 'Poblacion', 'DomicilioCobro', 'Empresa', 'TelEmpresa', 'CalleEmpresa', 'Vendedor', 'Promotor']"
+        [data]="polizasList"
+        [hasExportRow]="true"
+        (deleteEmit)="deletePoliza($event)">
+    ></app-custom-table>
+</div>
