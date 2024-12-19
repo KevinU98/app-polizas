@@ -6,6 +6,7 @@
     "paths": {
       "@Global/*":["src/app/global/*"],
       "@Environment": ["src/environments/environment.ts"],
+      "@Constants*": ["src/app/global/constants.ts"],
       "@EndPoints*": ["src/app/global/endpoints.ts"],
       "@Services": ["src/app/core/services"],
       "@Component/Table": ["src/app/shared/components/custom-table/custom-table.component.ts"],
