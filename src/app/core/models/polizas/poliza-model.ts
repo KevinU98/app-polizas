@@ -41,5 +41,4 @@ export interface PolizaModel {
     Promotor: string;
     Renovacion: number;
     Fecha: string;
-    beneficiarios:BeneficiarioModel[]
 }

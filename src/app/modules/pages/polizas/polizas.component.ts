@@ -8,7 +8,7 @@ import { PolizaService } from '@Services';
 import { SweetAlertService } from 'src/app/shared/services/sweet-alert.service';
 
 //Models
-import { PolizaRequest, GetPolizasResponse, PolizaModel, GetBeneficiarioRequest, BeneficiarioRequest } from '@Models/Polizas';
+import { PolizaRequest, PolizaModel, GetBeneficiarioRequest, BeneficiarioRequest, BeneficiarioModel } from '@Models/Polizas';
 import { CustomTableComponent } from '@Component/Table';
 
 @Component({
@@ -23,7 +23,7 @@ export class PolizaComponent implements OnInit{
   private polizaService = inject(PolizaService)
   private sweetAlertService = inject(SweetAlertService)
 
-  beneficiariosList: PolizaModel[] = [];
+  beneficiariosList: BeneficiarioModel[] = [];
 
   form = this.fb.nonNullable.group({
     folio: [0],

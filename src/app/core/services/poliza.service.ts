@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { polizas, beneficiarios } from '@EndPoints';
-import { BeneficiarioRequest, GetBeneficiarioRequest, GetConsecutivoResponse, GetPolizasResponse, PolizaRequest } from '@Models/Polizas';
+import { BeneficiarioRequest, GetBeneficiarioRequest, GetBeneficiariosResponse, GetConsecutivoResponse, GetPolizasResponse, PolizaRequest } from '@Models/Polizas';
 
 @Injectable({
   providedIn: 'root',
@@ -45,14 +45,14 @@ export class PolizaService {
     )
   }
 
-  getAllBeneficiarios(request:GetBeneficiarioRequest): Observable<GetPolizasResponse> {
+  getAllBeneficiarios(request:GetBeneficiarioRequest): Observable<GetBeneficiariosResponse> {
     const params = new HttpParams({
       fromObject:{
         consecutivo: request.consecutivo
       }
     })
     const httpOptions = {headers:this.headers, params}
-    return this.http.get<GetPolizasResponse>(beneficiarios.get, httpOptions)
+    return this.http.get<GetBeneficiariosResponse>(beneficiarios.get, httpOptions)
     .pipe(
       map(res => {
         return res;
