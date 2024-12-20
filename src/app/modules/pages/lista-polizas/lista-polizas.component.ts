@@ -55,7 +55,7 @@ export class ListaPolizasComponent implements OnInit{
           (data) => {
             const beneficiarios = data.response.data.map((benef, index) => `
               <tr>
-                <td class="border border-slate-700 p-2"><strong>BENEFICIARIO (${index + 1}): </strong>${benef.Nombre}</td>
+                <td class="border border-slate-700 p-2" colspan="2"><strong>BENEFICIARIO (${index + 1}): </strong>${benef.Nombre}</td>
                 <td class="border border-slate-700 p-2"><strong>EDAD: </strong>${benef.Edad}</td>
                 <td class="border border-slate-700 p-2"><strong>PARENTESCO: </strong>${benef.Parantesco}</td>
               </tr>
@@ -101,7 +101,7 @@ export class ListaPolizasComponent implements OnInit{
                 <td class="border border-slate-700 p-2 bg-[#21B2F9] text-white text-center" colspan="4"><strong>DATOS DEL CONTRATANTE</strong></td>
             </tr>
             <tr>
-                <td class="border border-slate-700 p-2" colspan="4">${poliza.Nombre}</td>
+                <td class="border border-slate-700 p-2" colspan="4"><strong>NOMBRE: </strong>${poliza.Nombre}</td>
             </tr>
             <tr>
                 <td class="border border-slate-700 p-2" colspan="3"><strong>DIRECCIÓN PARTICULAR: </strong>${poliza.DireccionParticular}</td>
@@ -114,7 +114,7 @@ export class ListaPolizasComponent implements OnInit{
                 <td class="border border-slate-700 p-2 bg-[#21B2F9] text-white text-center" colspan="4"><strong>DATOS DE LA EMPRESA EN QUE TRABAJA</strong></td>
             </tr>
             <tr>
-                <td class="border border-slate-700 p-2" colspan="4">${poliza.Empresa}</td>
+                <td class="border border-slate-700 p-2" colspan="4"><strong>NOMBRE: </strong>${poliza.Empresa}</td>
             </tr>
             <tr>
                 <td class="border border-slate-700 p-2" colspan="3"><strong>CALLE: </strong>${poliza.CalleEmpresa}</td>
@@ -123,11 +123,7 @@ export class ListaPolizasComponent implements OnInit{
             <tr>
                 <td class="border border-slate-700 p-2 bg-[#21B2F9] text-white text-center" colspan="4"><strong>BENEFICIARIOS</strong></td>
             </tr>
-            <tr>
-              <td class="border border-slate-700 p-2" colspan="2"><strong>BENEFICIARIO (1): </strong>JOSE LUIS MARTINEZ</td>
-              <td class="border border-slate-700 p-2"><strong>EDAD: </strong>55</td>
-              <td class="border border-slate-700 p-2"><strong>PARENTESCO: </strong>HERMANO</td>
-            </tr>
+            ${beneficiariosHTML}
         </tbody>
       </table>
     </div>
