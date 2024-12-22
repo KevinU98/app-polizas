@@ -163,34 +163,27 @@ export class ListaPolizasComponent implements OnInit{
       <table class="border-collapse border border-slate-500 w-full">
         <tbody>
           <tr>
-            <td class="border border-slate-500 p-2 bg-[#21B2F9] text-white text-center" colspan="2"><strong>BENEFICIOS CUBIERTOS</strong></td>
-            <td class="border border-slate-500 p-2 bg-[#21B2F9] text-white text-center"><strong>SUMA ASEGURADA </strong></td>
-            <td class="border border-slate-500 p-2 bg-[#21B2F9] text-white text-center"><strong>DEDUCIBLE </strong></td>
+            <td class="border border-slate-500 p-2 bg-[#21B2F9] text-white text-center" colspan="4"><strong>BENEFICIOS CUBIERTOS</strong></td>
           </tr>
           <tr>
-            <td class="border border-slate-500 p-2" colspan="2">GASTOS FUNERARIOS POR ACCIDENTE</td>
-            <td class="border border-slate-500 p-2">$ 50,000.00</td>
-            <td class="border border-slate-500 p-2"></td>
+            <td class="border border-slate-500 p-2 w-1/2" colspan="2"><strong>1.</strong> Gestión del funeral.</td>
+            <td class="border border-slate-500 p-2 w-1/2" colspan="2"><strong>2.</strong> Traslado local.</td>
           </tr>
           <tr>
-            <td class="border border-slate-500 p-2" colspan="2">MUERTE ACCIDENTAL</td>
-            <td class="border border-slate-500 p-2">$ 300,000.00</td>
-            <td class="border border-slate-500 p-2"></td>
+            <td class="border border-slate-500 p-2" colspan="2"><strong>3.</strong> Preparación estética del cuerpo.</td>
+            <td class="border border-slate-500 p-2" colspan="2"><strong>4.</strong> Embalsamamiento por muerte natural.</td>
           </tr>
           <tr>
-            <td class="border border-slate-500 p-2" colspan="2">PERDIDAS ORGÁNICAS ESCALA B</td>
-            <td class="border border-slate-500 p-2">$ 200,000.00</td>
-            <td class="border border-slate-500 p-2"></td>
+            <td class="border border-slate-500 p-2" colspan="2"><strong>5.</strong> Ataúd metálico especial.</td>
+            <td class="border border-slate-500 p-2" colspan="2"><strong>6.</strong> Capillas de velación (Sala 2) en Funerales Martinez.</td>
           </tr>
           <tr>
-            <td class="border border-slate-500 p-2" colspan="2">GASTOS MÉDICOS POR ACCIDENTE</td>
-            <td class="border border-slate-500 p-2">$ 200,000.00</td>
-            <td class="border border-slate-500 p-2"></td>
+            <td class="border border-slate-500 p-2" colspan="2"><strong>7.</strong> Servicio de carroza.</td>
+            <td class="border border-slate-500 p-2" colspan="2"><strong>8.</strong> 50% de gastos de inhumación en Jardines de San Felipe (tarifa al momento de utilizarlo).</td>
           </tr>
           <tr>
-            <td class="border border-slate-500 p-2" colspan="2">INDEMNIZACIÓN DIARIA POR HOSPITALIZACIÓN</td>
-            <td class="border border-slate-500 p-2">$ 833.33</td>
-            <td class="border border-slate-500 p-2"></td>
+            <td class="border border-slate-500 p-2" colspan="2"><strong>9.</strong> El servicio comienza su validez a partir del día 30 de ser liquidado.</td>
+            <td class="border border-slate-500 p-2" colspan="2"><strong>10.</strong> Posteriormente, durante el transcurso de los 30 dias, estaría llegando su contrato de póliza para ser firmado y verificar datos correspondientes.</td>
           </tr>
         </tbody>
       </table>
@@ -218,35 +211,6 @@ export class ListaPolizasComponent implements OnInit{
         <div class="w-2/3 h-0.5 bg-gray-500 mx-auto mb-2"></div>
         <span class="font-bold">EL CLIENTE</span>
       </div>
-    </div>
-    <div class="mt-1">
-      <table class="w-full">
-        <tbody>
-          <tr class="bg-[#21B2F9] text-white">
-            <td class="font-bold border border-slate-500 p-2 text-center text-sm" colspan="2">El servicio funerario incluye</td>
-          </tr>
-          <tr>
-            <td class="p-2 text-sm w-1/2"><strong>1.</strong> Gestión del funeral.</td>
-            <td class="p-2 text-sm w-1/2"><strong>2.</strong> Traslado local.</td>
-          </tr>
-          <tr>
-            <td class="p-2 text-sm"><strong>3.</strong> Preparación estética del cuerpo.</td>
-            <td class="p-2 text-sm"><strong>4.</strong> Embalsamamiento por muerte natural.</td>
-          </tr>
-          <tr>
-            <td class="p-2 text-sm"><strong>5.</strong> Ataúd metálico especial.</td>
-            <td class="p-2 text-sm"><strong>6.</strong> Capillas de velación (Sala 2) en Funerales Martinez.</td>
-          </tr>
-          <tr>
-            <td class="p-2 text-sm"><strong>7.</strong> Servicio de carroza.</td>
-            <td class="p-2 text-sm"><strong>8.</strong> 50% de gastos de inhumación en Jardines de San Felipe (tarifa al momento de utilizarlo).</td>
-          </tr>
-          <tr>
-            <td class="p-2 text-sm"><strong>9.</strong> El servicio comienza su validez a partir del día 30 de ser liquidado.</td>
-            <td class="p-2 text-sm"><strong>10.</strong> Posteriormente, durante el transcurso de los 30 dias, estaría llegando su contrato de póliza para ser firmado y verificar datos correspondientes.</td>
-          </tr>
-        </tbody>
-      </table>
     </div>`;
 
     const options = {
