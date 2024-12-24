@@ -182,11 +182,10 @@ export class ListaPolizasComponent implements OnInit{
           </tr>
           <tr>
             <td class="border border-slate-500 p-2" colspan="2"><strong>7.</strong> Servicio de carroza.</td>
-            <td class="border border-slate-500 p-2" colspan="2"><strong>8.</strong> 50% de gastos de inhumación en Jardines de San Felipe (tarifa al momento de utilizarlo).</td>
+            <td class="border border-slate-500 p-2" colspan="2"><strong>8.</strong> El servicio comienza su validez a partir del día 30 de ser liquidado.</td>
           </tr>
           <tr>
-            <td class="border border-slate-500 p-2" colspan="2"><strong>9.</strong> El servicio comienza su validez a partir del día 30 de ser liquidado.</td>
-            <td class="border border-slate-500 p-2" colspan="2"><strong>10.</strong> Posteriormente, durante el transcurso de los 30 dias, estaría llegando su contrato de póliza para ser firmado y verificar datos correspondientes.</td>
+            <td class="border border-slate-500 p-2" colspan="4"><strong>9.</strong> Posteriormente, durante el transcurso de los 30 dias, estaría llegando su contrato de póliza para ser firmado y verificar datos correspondientes.</td>
           </tr>
         </tbody>
       </table>
