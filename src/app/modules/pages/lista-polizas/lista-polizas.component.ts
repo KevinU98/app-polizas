@@ -55,17 +55,28 @@ export class ListaPolizasComponent implements OnInit{
           (data) => {
             const beneficiarios = data.response.data.map((benef, index) => `
               <tr>
-                <td class="border border-slate-500 p-2" colspan="2"><strong>BENEFICIARIO (${index + 1}): </strong>${benef.Nombre}</td>
+                <td class="border border-slate-500 p-2" colspan="2"><strong>ASEGURADO (${index + 1}): </strong>${benef.Nombre}</td>
                 <td class="border border-slate-500 p-2"><strong>EDAD: </strong>${benef.Edad}</td>
                 <td class="border border-slate-500 p-2"><strong>PARENTESCO: </strong>${benef.Parantesco}</td>
               </tr>
-            `).join('');
-            resolve(beneficiarios);
+            `);
+            const totalRows = 5;
+            const emptyRows = totalRows - beneficiarios.length;
+            for (let i = 0; i < emptyRows; i++) {
+              beneficiarios.push(`
+                <tr>
+                  <td class="border border-slate-500 p-2" colspan="2"><strong>ASEGURADO (${beneficiarios.length + 1}): </strong>---</td>
+                  <td class="border border-slate-500 p-2"><strong>EDAD: </strong>---</td>
+                  <td class="border border-slate-500 p-2"><strong>PARENTESCO: </strong>---</td>
+                </tr>
+              `);
+            }
+            resolve(beneficiarios.join(''));
           },
           (error) => reject(error)
         );
       });
-    };
+    };    
     try {
       beneficiariosHTML = await obtenerBeneficiarios();
     } catch (error) {
@@ -86,13 +97,12 @@ export class ListaPolizasComponent implements OnInit{
     <div class="grid grid-cols-10 items-center ">
       <div class="col-span-7 flex flex-col items-left">
         <img src="../../../assets/dist/image/logo.png" class="h-[130px] w-[300px]" alt="Logotipo" />
-        <p class="text-sm font-bold">Calle Miguel Hidalgo #505 Nte, Col. Centro, Linares, N.L. Tel: 821-110-47-45.</p>
       </div>
       <div class="col-span-3 bg-[#21B2F9] text-center text-sm">
           <h4 class="text-white p-4">Póliza de Seguro</h4>
       </div>
     </div>
-    <div class="mt-3 border-collapse border border-slate-500 text-xs">
+    <div class="mt-1 border-collapse border border-slate-500 text-xs">
       <table class="w-full">
         <tbody>
           <tr>
@@ -102,15 +112,10 @@ export class ListaPolizasComponent implements OnInit{
             <td class="p-2 border border-slate-500"><strong>OFICINA: </strong>MATRIZ</td>
           </tr>
           <tr>
-            <td class="p-2 border border-slate-500"><strong>AGRUPADOR: </strong></td>
-            <td class="p-2 border border-slate-500"><strong>MONEDA: </strong>M.N.</td>
+            <td class="p-2 border border-slate-500"><strong>ID CLIENTE: </strong>0001508628</td>
+            <td class="p-2 border border-slate-500"><strong>MEDIO PAGO: </strong>ANUAL</td>
             <td class="p-2 border border-slate-500"><strong>FORMA PAGO: </strong>ANUAL</td>
             <td class="p-2 border border-slate-500"><strong>DIAS VIGENCIA: </strong>365</td>
-          </tr>
-          <tr>
-            <td class="p-2 border border-slate-500"><strong>ID CLIENTE: </strong>0001508628</td>
-            <td class="p-2 border border-slate-500" colspan="2"><strong>FORMA ADMINISTRACIÓN: </strong>N/A</td>
-            <td class="p-2 border border-slate-500"><strong>MEDIO PAGO: </strong>ANUAL</td>
           </tr>
           <tr>
             <td class="text-center p-21 border border-slate-500"><strong>DESDE HRS.</strong></td>
@@ -130,30 +135,28 @@ export class ListaPolizasComponent implements OnInit{
       <table class="border-collapse border border-slate-500 w-full text-xs">
           <tbody>
             <tr>
-                <td class="border border-slate-500 p-2 bg-[#21B2F9] text-white text-center" colspan="4"><strong>DATOS DEL CONTRATANTE</strong></td>
+              <td class="border border-slate-500 p-2 bg-[#21B2F9] text-white text-center" colspan="4"><strong>DATOS DEL CONTRATANTE</strong></td>
             </tr>
             <tr>
-                <td class="border border-slate-500 p-2" colspan="4"><strong>NOMBRE: </strong>${poliza.Nombre}</td>
+              <td class="border border-slate-500 p-2" colspan="4"><strong>NOMBRE: </strong>${poliza.Nombre}</td>
             </tr>
             <tr>
-                <td class="border border-slate-500 p-2" colspan="3"><strong>DIRECCIÓN PARTICULAR: </strong>${poliza.DireccionParticular}</td>
-                <td class="border border-slate-500 p-2"><strong>POBLACIÓN: </strong>${poliza.Poblacion}</td>
+              <td class="border border-slate-500 p-2" colspan="3"><strong>DIRECCIÓN PARTICULAR: </strong>${poliza.DireccionParticular}</td>
+              <td class="border border-slate-500 p-2"><strong>POBLACIÓN: </strong>${poliza.Poblacion}</td>
             </tr>
             <tr>
-                <td class="border border-slate-500 p-2" colspan="4"><strong>DIRECCIÓN DE COBRO: </strong>${poliza.DomicilioCobro}</td>
+              <td class="border border-slate-500 p-2" colspan="3"><strong>DIRECCIÓN DE COBRO: </strong>${poliza.DomicilioCobro}</td>
+              <td class="border border-slate-500 p-2"><strong>TEL: </strong>${poliza.Telefono}</td>
             </tr>
             <tr>
-                <td class="border border-slate-500 p-2 bg-[#21B2F9] text-white text-center" colspan="4"><strong>DATOS DE LA EMPRESA EN QUE TRABAJA</strong></td>
+              <td class="border border-slate-500 p-2 bg-[#21B2F9] text-white text-center" colspan="4"><strong>DATOS DE LA EMPRESA EN QUE TRABAJA</strong></td>
             </tr>
             <tr>
-                <td class="border border-slate-500 p-2" colspan="4"><strong>NOMBRE: </strong>${poliza.Empresa}</td>
+              <td class="border border-slate-500 p-2" colspan="3"><strong>NOMBRE: </strong>${poliza.Empresa}</td>
+              <td class="border border-slate-500 p-2"><strong>TEL: </strong>${poliza.Telefono}</td>
             </tr>
             <tr>
-                <td class="border border-slate-500 p-2" colspan="3"><strong>CALLE: </strong>${poliza.CalleEmpresa}</td>
-                <td class="border border-slate-500 p-2"><strong>TEL: </strong>${poliza.TelEmpresa}</td>
-            </tr>
-            <tr>
-                <td class="border border-slate-500 p-2 bg-[#21B2F9] text-white text-center" colspan="4"><strong>BENEFICIARIOS</strong></td>
+              <td class="border border-slate-500 p-2 bg-[#21B2F9] text-white text-center" colspan="4"><strong>ASEGURADOS</strong></td>
             </tr>
             ${beneficiariosHTML}
         </tbody>
@@ -188,7 +191,7 @@ export class ListaPolizasComponent implements OnInit{
         </tbody>
       </table>
     </div>
-    <div class="mt-1 text-xs">
+    <div class="text-xs">
       <table class="border-collapse border border-slate-500 w-full">
         <tbody>
           <tr>
@@ -202,13 +205,13 @@ export class ListaPolizasComponent implements OnInit{
         </tbody>
       </table>
     </div>
-    <div class="mt-[50px] text-center grid grid-cols-8 grid-rows-2 text-xs">
+    <div class="mt-[30px] text-center grid grid-cols-8 grid-rows-2 text-xs">
       <div class="col-span-4">
-        <div class="w-2/3 h-0.5 bg-gray-500 mx-auto mb-2"></div>
+        <div class="w-2/3 h-0.5 bg-gray-500 mx-auto mb-1"></div>
         <span class="font-bold">EL VENDEDOR</span>
       </div>
       <div class="col-span-4">
-        <div class="w-2/3 h-0.5 bg-gray-500 mx-auto mb-2"></div>
+        <div class="w-2/3 h-0.5 bg-gray-500 mx-auto mb-1"></div>
         <span class="font-bold">EL CLIENTE</span>
       </div>
     </div>`;
