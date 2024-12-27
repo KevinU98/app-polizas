@@ -23,7 +23,7 @@
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th *ngFor="let header of headers; let i = index" (click)="sortTable(keys[i])" scope="col" class="px-6 py-3 cursor-pointer">
+                        <th *ngFor="let header of headers; let i = index" (click)="sortTable(keys[i])" scope="col" class="px-6 py-3 cursor-pointer whitespace-nowrap">
                             <div class="flex items-center">
                                 {{header}}
                                 <nb-icon *ngIf="sortKey === keys[i]" [icon]="sortDirection === 'asc' ? 'arrow-up-outline' : 'arrow-down-outline'"></nb-icon>
@@ -35,37 +35,37 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let row of filtrarDatos" class="border-b" [ngClass]="{'bg-red-500 text-white': row.Renovacion === 1, 'bg-white text-black': row.Renovacion !== 1}">
-                        <td *ngFor="let key of keys" class="px-6 py-4">
+                    <tr *ngFor="let row of filtrarDatos" class="border-b" [ngClass]="{'bg-red-500 text-white': row.PorVencer === 1, 'bg-white text-black': row.PorVencer !== 1}">
+                        <td *ngFor="let key of keys" class="px-6 py-4 whitespace-nowrap">
                            {{row[key]}}
                         </td>
                         <td *ngIf="hasEdit || hasDelete || hasExportRow" class="text-center">
                             <button
                               *ngIf="hasExportRow" 
-                              [ngClass]="{'text-white': row.Renovacion === 1}" 
+                              [ngClass]="{'text-white': row.PorVencer === 1}" 
                               class="text-red-600 font-medium hover:underline" 
                               (click)="exportRow(row)">
                               <nb-icon 
                                 icon="file-text-outline" 
-                                [ngClass]="{'text-white': row.Renovacion === 1}"></nb-icon>
+                                [ngClass]="{'text-white': row.PorVencer === 1}"></nb-icon>
                             </button>
                             <button
                               *ngIf="hasEdit" 
-                              [ngClass]="{'text-white': row.Renovacion === 1}" 
+                              [ngClass]="{'text-white': row.PorVencer === 1}" 
                               class="text-blue-600 font-medium hover:underline" 
                               (click)="editRow(row)">
                               <nb-icon
                                 icon="edit-outline" 
-                                [ngClass]="{'text-white': row.Renovacion === 1}"></nb-icon>
+                                [ngClass]="{'text-white': row.PorVencer === 1}"></nb-icon>
                             </button>
                             <button 
                               *ngIf="hasDelete" 
-                              [ngClass]="{'text-white': row.Renovacion === 1}" 
+                              [ngClass]="{'text-white': row.PorVencer === 1}" 
                               class="text-red-600 font-medium hover:underline" 
                               (click)="deleteRow(row)">
                               <nb-icon 
                                 icon="trash-outline" 
-                                [ngClass]="{'text-white': row.Renovacion === 1}"></nb-icon>
+                                [ngClass]="{'text-white': row.PorVencer === 1}"></nb-icon>
                             </button>
                         </td>                          
                     </tr>
