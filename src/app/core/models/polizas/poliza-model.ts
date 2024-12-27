@@ -39,6 +39,7 @@ export interface PolizaModel {
     Parentesco: string;
     Vendedor: string;
     Promotor: string;
-    Renovacion: number;
+    PorVencer: number;
     Fecha: string;
+    FechaVencimiento: string;
 }
